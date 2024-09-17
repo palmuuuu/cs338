@@ -1,11 +1,7 @@
 Palmy Klangsathorn (She/her)
 
-------------------------
+My Plan of Using Kali: 
+- using it for peetration testing
 
-**My Plan of Using Kali:**
-
-------------------------
-
-**Kali Installation:**
-
-------------------------
+Kali Installation:
+- done!
