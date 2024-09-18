@@ -16,7 +16,7 @@
 
 ---
 
-## After this the ssh will be changing the number(based on the level), and password will be the one from the previous level.
+## After this, the SSH number will change based on the level, and the password will be the one from the previous level.
 
 ## Level 1 -> Level 2
 
