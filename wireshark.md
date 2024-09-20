@@ -1,9 +1,8 @@
 # Wireshark Assignment
 
-Name: Palmy Klangsathorn
+**Name**: Palmy Klangsathorn
 
-After running the process of eximing the list of network frames shown in the main Wire
-shark display, I got 8 frames in total including of:
+After examining the list of network frames shown in the main Wireshark display, I identified a total of 8 frames, including the following:
 
 | Frame | Source       | Destination  | Protocol | Packet     |
 | ----- | ------------ | ------------ | -------- | ---------- |
