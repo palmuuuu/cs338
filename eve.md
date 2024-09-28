@@ -21,9 +21,9 @@ Let Alice's secret number be \( x \), and Bob's secret number be \( y \). The nu
 
 Alice sends Bob a value computed as:
 
-\[
+$$
 \text{Alice sent Bob} = g^x \mod p
-\]
+$$
 
 Substitute the values:
 
