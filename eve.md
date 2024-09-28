@@ -85,5 +85,5 @@ In real-world applications, the numbers used in Diffie-Hellman (like g, p, and t
 
 ### Given:
 
-- Bob's public key: \(e\_\text{Bob}, n\_\text{Bob}\) = (13, 162991)
+- Bob's public key: $\(e\_\text{Bob}, n\_\text{Bob}\)$ = (13, 162991)
 - Encrypted message from Alice to Bob:
