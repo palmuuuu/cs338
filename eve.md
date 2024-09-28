@@ -85,7 +85,7 @@ In real-world applications, the numbers used in Diffie-Hellman (like g, p, and t
 
 ### Given:
 
-## Bob's Public Key
+Bob's Public Key
 
 Given:
 
