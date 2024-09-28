@@ -8,16 +8,16 @@
 
 - **g** = 7
 - **p** = 97
-- Alice sent Bob: 53
-- Bob sent Alice: 82
+- Alice picked a secret number, x: 53
+- Bob picked a secret number, y: 82
 
 ### Task: Compute the Shared Secret (K)
 
-In the Diffie-Hellman key exchange, both Alice and Bob each choose a secret number that they do not share with one another. They use these secret numbers along with the public values \( g \) and \( p \) to compute and exchange numbers. In this case, Alice sent Bob the number 53, and Bob sent Alice the number 82.
+In the Diffie-Hellman key exchange, both Alice and Bob each choose a secret number that they do not share with one another. They use these secret numbers along with the public values \( g \) and \( p \) to compute and exchange numbers. In this case, Alice secret number is 53, and Bob secreat number is 82.
 
 Let Alice's secret number be \( x \), and Bob's secret number be \( y \). The numbers exchanged between Alice and Bob are computed as follows:
 
-#### Alice's Secret Number:
+#### Alice sent to Bob:
 
 Alice sends Bob a value computed as:
 
@@ -28,20 +28,18 @@ $$
 Substitute the values:
 
 $$
-53 = 7^x \mod 97
+\text{Alice sent Bob} = 7^53 \mod 97
 $$
 
-To solve for \( x \):
+To solve for Alice sent Bob:
 
 ```python
-for x in range(1, 97):
-    if (7**x) % 97 == 53:
-        print(x)
+7**53 % 97
 ```
 
-Thus, the secret number \( x \) that Alice used in this Diffie-Hellman exchange is 63.
+Thus, Alice sent Bob a 71.
 
-#### Bob's Secret Number:
+#### Bob sent to Alice:
 
 Similarly, Bob sends Alice a value calculated as:
 
@@ -52,30 +50,30 @@ $$
 Substituting the values:
 
 $$
-82 = 7^y \mod 97
+\text{Bob sent Alice} = 7^82 \mod 97
 $$
 
 To solve for \( y \):
 
 ```python
-for y in range(1, 97):
-    if (7**y) % 97 == 82:
-        print(y)
+7**82 % 97
 ```
 
-Thus, the secret number \( x \) that Bob used in this Diffie-Hellman exchange is 81.
+Thus, Bob sent Alice a 31.
 
 The shared secret \( K \) is computed by both Alice and Bob using the following formulas:
 
 $$
-K*{\text{Alice}} = (\text{Bob's value})^x \mod p = 82^{63} \mod 97 = 30
+K*{\text{Alice}} = (\text{Bob's value})^x \mod p = 31^{53} \mod 97 = 86
 $$
 
 $$
-K*{\text{Bob}} = (\text{Alice's value})^y \mod p = 53^{81} \mod 97 = 30
+K*{\text{Bob}} = (\text{Alice's value})^y \mod p = 71^{82} \mod 97 = 86
 $$
 
-Both computations should give the same result for the shared secret \( K = 30 \).
+Both computations should give the same result for the shared secret \( K = 86 \).
+
+In the Diffie-Hellman key exchange algorithm, the shared secret is the same because the two parties involved combine values to reach the same resulting value, without ever exchanging the secret itself.
 
 #### Why This Wouldn't Work with Large Integers:
 
