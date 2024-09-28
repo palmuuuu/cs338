@@ -13,7 +13,7 @@
 
 ### Task: Compute the Shared Secret (K)
 
-In the Diffie-Hellman key exchange, both Alice and Bob each choose a secret number (private key) that they do not share with one another. They use these private keys along with the public values \( g \) and \( p \) to compute and exchange numbers. In this case, Alice sent Bob the number 53, and Bob sent Alice the number 82.
+In the Diffie-Hellman key exchange, both Alice and Bob each choose a secret number that they do not share with one another. They use these secret numbers along with the public values \( g \) and \( p \) to compute and exchange numbers. In this case, Alice sent Bob the number 53, and Bob sent Alice the number 82.
 
 Let Alice's secret number be \( x \), and Bob's secret number be \( y \). The numbers exchanged between Alice and Bob are computed as follows:
 
@@ -34,9 +34,9 @@ $$
 To solve for \( x \):
 
 ```python
-for i in range(1, 97):
-    if (7**i) % 97 == 53:
-        print(i)
+for x in range(1, 97):
+    if (7**x) % 97 == 53:
+        print(x)
 ```
 
 Thus, the secret number \( x \) that Alice used in this Diffie-Hellman exchange is 63.
@@ -58,9 +58,9 @@ $$
 To solve for \( y \):
 
 ```python
-for i in range(1, 97):
-    if (7**i) % 97 == 82:
-        print(i)
+for y in range(1, 97):
+    if (7**y) % 97 == 82:
+        print(y)
 ```
 
 Thus, the secret number \( x \) that Bob used in this Diffie-Hellman exchange is 81.
