@@ -100,3 +100,16 @@ The encrypted message sent from Alice to Bob is represented as the following cip
 59283, 109287, 22623, 84902, 6161, 109039, 75094, 56614,
 13649, 120780, 133707, 66992, 128221]
 ```
+
+### Step 1: Factor \( n\_{\text{Bob}} \)
+
+In order to decrypt the message, we first need to factor \( n\_{\text{Bob}} = 162991 \) into its prime factors \( p \) and \( q \):
+
+- \( p = 379 \)
+- \( q = 430 \)
+
+Using these factors, we can compute Euler's Totient function \( \phi(n) \):
+
+\[
+\phi(n) = (p - 1) \times (q - 1) = (379 - 1) \times (430 - 1) = 378 \times 429 = 162162
+\]
