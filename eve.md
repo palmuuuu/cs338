@@ -21,15 +21,15 @@ Let Alice's secret number be \( x \), and Bob's secret number be \( y \). The nu
 
 Alice sends Bob a value computed as:
 
-$
+$$
 \text{Alice sent Bob} = g^x \mod p
-$
+$$
 
 Substitute the values:
 
-\[
+$$
 53 = 7^x \mod 97
-\]
+$$
 
 To solve for \( x \):
 
@@ -45,15 +45,15 @@ Thus, the secret number \( x \) that Alice used in this Diffie-Hellman exchange 
 
 Similarly, Bob sends Alice a value calculated as:
 
-\[
+$$
 \text{Bob sent Alice} = g^y \mod p
-\]
+$$
 
 Substituting the values:
 
-\[
+$$
 82 = 7^y \mod 97
-\]
+$$
 
 To solve for \( y \):
 
@@ -67,12 +67,13 @@ Thus, the secret number \( x \) that Bob used in this Diffie-Hellman exchange is
 
 The shared secret \( K \) is computed by both Alice and Bob using the following formulas:
 
-\[
+$$
 K*{\text{Alice}} = (\text{Bob's value})^x \mod p = 82^{63} \mod 97 = 30
-\]
-\[
+$$
+
+$$
 K*{\text{Bob}} = (\text{Alice's value})^y \mod p = 53^{81} \mod 97 = 30
-\]
+$$
 
 Both computations should give the same result for the shared secret \( K = 30 \).
 
