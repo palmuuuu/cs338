@@ -75,9 +75,9 @@ Both computations should give the same result for the shared secret $K = 86$.
 
 In the Diffie-Hellman key exchange algorithm, the shared secret is the same because the two people combined values to reach the same resulting value, without ever exchanging the secret itself.
 
-#### Why This Wouldn't Work with Large Integers:
+#### Why This Wouldn't Work with Large Integers?
 
-This calculation that I have done is slower for larger numbers and can lead to overflow or extremely slow calculations. For example, the expression `7**82 % 97` can be slow because when you use `7**82`, Python computes $7^{82}$ directly. This involves calculating 7 multiplied by itself 82 times, which is computationally expensive as the exponent grows larger. The result can be an extremely large number that requires significant memory and processing power. Moreover, for very large exponents, the intermediate result of $7^{82}$ could become extremely large, leading to overflow issues in computer that do not handle big integers well. While Python does support arbitrary-precision integers, the computations still take longer for larger numbers. In addition, the operation `% 97` is performed only after calculating the full power, which means the full power is computed before any modular reduction is applied. This results in unnecessary calculations with large numbers. We should do modular instantly with powering in some ways. So, in real-world applications, the numbers used in Diffie-Hellman (such as g and p) are much larger. Computing modular exponentiations for these large values requires specialized algorithms (like modular exponentiation algorithms, in python code is pow(x, y)) and significant power using for computer.
+This calculation that I have done is slower for larger numbers and can lead to overflow or extremely slow calculations. For example, the expression `7**82 % 97` can be slow because when you use `7**82`, Python computes $7^{82}$ directly. This involves calculating 7 multiplied by itself 82 times, which is computationally expensive as the exponent grows larger. The result can be an extremely large number that requires significant memory and processing power. Moreover, for very large exponents, the intermediate result of $7^{82}$ could become extremely large, leading to overflow issues in computer that do not handle big integers well. While Python does support arbitrary-precision integers, the computations still take longer for larger numbers. In addition, the operation `% 97` is performed only after calculating the full power, which means the full power is computed before any modular reduction is applied. This results in unnecessary calculations with large numbers. We should do modular instantly with powering in some ways, like property of exponentiation in modular arithmetic. So, in real-world applications, the numbers used in Diffie-Hellman (such as g and p) are much larger. Computing modular exponentiations for these large values requires specialized algorithms (like modular exponentiation algorithms, in python code is pow(x, y)) and significant power using for computer.
 
 ## RSA
 
@@ -202,9 +202,12 @@ This is the message that Alice sent to Bob that I got:
 - **Memory Constraints**: Handling large numbers can quickly consume significant memory, especially in less optimized environments.
 - **Overflow**: If not using specialized libraries or built-in support for arbitrary-precision integers, we might run into overflow errors in languages that use fixed-size integers.
 
-#### Why Alice's Message Encoding Is Insecure
+#### Why Alice's Message Encoding Is Insecure?
 
-Even if Bob's keys involved larger integers, Alice's message encoding would still be insecure because:
+Even if Bob's keys involve larger integers, Alice's message encoding would still be insecure because:
 
-- **Simple RSA Padding**: The message is encoded directly as ASCII without any additional encryption layers. This makes it vulnerable to certain types of attacks, such as ciphertext-only attacks.
-- **Predictable Content**: If parts of the message are predictable (such as common phrases or headers), an attacker can deduce parts of the plaintext, weakening the encryption.
+- **The Concepts**: Since everyone knows the concept of RSA and how prime numbers, factoring, and modular arithmetic work, people can run programs (using already established processes) to solve for the prime numbers. While it’s difficult, with a powerful computer and enough time, it might be feasible. Furthermore, since we can easily know somebody's public key, we can attempt to solve for the private key.
+
+- **ASCII**: The message is encoded directly as ASCII without any additional encryption layers.
+
+- **Predictable Content**: If parts of the message are predictable (such as common phrases or headers), someone can deduce parts of the plaintext.
