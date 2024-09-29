@@ -194,9 +194,7 @@ print(ascii_chars)
 
 This is the message that Alice sent to Bob that I got:
 
-"
-Dear Bob, check this out. https://www.surveillancewatch.io/ See ya, Alice.
-"
+`Dear Bob, check this out. https://www.surveillancewatch.io/ See ya, Alice.`
 
 #### If the integers involved were much larger, the following issues might arise:
 
