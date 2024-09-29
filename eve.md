@@ -99,13 +99,11 @@ The encrypted message sent from Alice to Bob is represented as the following cip
 13649, 120780, 133707, 66992, 128221]
 ```
 
-### Step 1: Writing down all variables
+### Step 1: Defining All Variables
 
 According to the RSA algorithm, we know that the cipher sent by Alice to Bob is encrypted using the following formula:
 
-\[
-\text{Cipher}_{\text{number}} = (\text{ASCII}_{\text{number}})^{e*{\text{Bob}}} \mod n*{\text{Bob}}
-\]
+$(\text{Cipher}_{\text{number}} = (\text{ASCII}_{\text{number}})^{e_{\text{Bob}}} \mod n_{\text{Bob}})$
 
 ```python
 cipher = [17645, 100861, 96754, 160977, 120780, 90338, 130962, 74096,
