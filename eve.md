@@ -13,9 +13,9 @@
 
 ### Task: Compute the Shared Secret (K)
 
-In the Diffie-Hellman key exchange, both Alice and Bob each choose a secret number that they do not share with one another. They use these secret numbers along with the public values \( g \) and \( p \) to compute and exchange numbers. In this case, Alice secret number is 53, and Bob secreat number is 82.
+In the Diffie-Hellman key exchange, both Alice and Bob each choose a secret number that they do not share with one another. They use these secret numbers along with the public values $g$ and $p$ to compute and exchange numbers. In this case, Alice secret number is 53, and Bob secreat number is 82.
 
-Let Alice's secret number be \( x \), and Bob's secret number be \( y \). The numbers exchanged between Alice and Bob are computed as follows:
+Let Alice's secret number be $x$, and Bob's secret number be $y$. The numbers exchanged between Alice and Bob are computed as follows:
 
 #### Alice sent to Bob:
 
@@ -53,7 +53,7 @@ $$
 \text{Bob sent Alice} = 7^82 \mod 97
 $$
 
-To solve for \( y \):
+To solve for $y$:
 
 ```python
 7**82 % 97
@@ -61,7 +61,7 @@ To solve for \( y \):
 
 Thus, Bob sent Alice a 31.
 
-The shared secret \( K \) is computed by both Alice and Bob using the following formulas:
+The shared secret $K$ is computed by both Alice and Bob using the following formulas:
 
 $$
 K*{\text{Alice}} = (\text{Bob's value})^x \mod p = 31^{53} \mod 97 = 86
@@ -71,13 +71,13 @@ $$
 K*{\text{Bob}} = (\text{Alice's value})^y \mod p = 71^{82} \mod 97 = 86
 $$
 
-Both computations should give the same result for the shared secret \( K = 86 \).
+Both computations should give the same result for the shared secret $ K = 86 $.
 
-In the Diffie-Hellman key exchange algorithm, the shared secret is the same because the two parties involved combine values to reach the same resulting value, without ever exchanging the secret itself.
+In the Diffie-Hellman key exchange algorithm, the shared secret is the same because the two people combined values to reach the same resulting value, without ever exchanging the secret itself.
 
 #### Why This Wouldn't Work with Large Integers:
 
-In real-world applications, the numbers used in Diffie-Hellman (like g, p, and the exchanged values) are much larger (often hundreds of digits). Computing modular exponentiations for such large values requires specialized algorithms (e.g., **modular exponentiation algorithms**) and significant computational power. Without these optimizations, handling large numbers would result in overflow or extremely slow calculations, making the process impractical for everyday use.
+This calculation that I have done is slower for larger numbers and can lead to overflow or extremely slow calculations. For example, the expression `7**82 % 97` can be slow because when you use `7**82`, Python computes $7^{82}$ directly. This involves calculating 7 multiplied by itself 82 times, which is computationally expensive as the exponent grows larger. The result can be an extremely large number that requires significant memory and processing power. Moreover, for very large exponents, the intermediate result of $7^{82}$ could become extremely large, leading to overflow issues in computer that do not handle big integers well. While Python does support arbitrary-precision integers, the computations still take longer for larger numbers. In addition, the operation `% 97` is performed only after calculating the full power, which means the full power is computed before any modular reduction is applied. This results in unnecessary calculations with large numbers. We should do modular instantly with powering in some ways. So, in real-world applications, the numbers used in Diffie-Hellman (such as g and p) are much larger. Computing modular exponentiations for these large values requires specialized algorithms (like modular exponentiation algorithms, in python code is pow(x, y)) and significant power using for computer.
 
 ## RSA
 
