@@ -141,25 +141,70 @@ asciis = [17509, 24946, 8258, 28514, 11296, 25448, 25955, 27424, 29800,
 26670,26991, 12064, 21349, 25888, 31073, 11296, 16748, 26979, 25902]
 ```
 
-### Step 2: Python Code to Convert ASCII Numbers to Readable Text
+### Step 3: Python Code to Convert ASCII Numbers to Readable Text
+
+Here is the Python code that uses chr(num) to convert each ASCII value to a character:
 
 ```python
 for num in asciis:
   print(chr(num), end='')
 ```
 
-Here is the message sent from Alice to Bob:
+Here is the characters that I got:
 䑥慲⁂潢 Ⱐ 捨散欠瑨楳 ⁯ 畴⸠桴瑰猺⼯睷眮獵牶敩汬慮捥睡瑣栮楯⼠卥攠祡 Ⱐ 䅬楣攮
+
+Which looks meaningless (I asked my Taiwanese and Chinese friends, and they told me that this Chinese passage is meaningless), so I came back to myself and rethought it again. Now I know that I need to convert the ASCII numbers to hexadecimal numbers first, then convert them to characters.
+
+### Step 4: Python Code to Convert ASCII Numbers to Hexadecimals
+
+Here is the Python code that converts the numbers to hexadecimals:
+
+```python
+hex_values = []
+for value in asciis:
+  hex_values.append(hex(value))
+
+print(hex_values)
+```
+
+Here is the list of hexadecimals that I got,
+
+hex_values = ['0x4465', '0x6172', '0x2042', '0x6f62', '0x2c20', '0x6368', '0x6563', '0x6b20', '0x7468',
+'0x6973', '0x206f', '0x7574', '0x2e20', '0x6874', '0x7470', '0x733a', '0x2f2f', '0x7777',
+'0x772e', '0x7375', '0x7276', '0x6569', '0x6c6c', '0x616e', '0x6365', '0x7761', '0x7463',
+'0x682e', '0x696f', '0x2f20', '0x5365', '0x6520', '0x7961', '0x2c20', '0x416c', '0x6963', '0x652e']
+
+Since we cannot convert these hexadecimals one by one directly, we need to concatenate every hexadecimal into one string. Then, we can convert it to characters.
+
+### Step 5: Combine those Hexadecimal Numbers into One String and Convert each Consecutive Pair to a Character.
+
+Here is Python code to concatenate those hexadecimals by removing the '0x' and concatenating them into one string, and then converting those consecutive pairs to characters.
+
+```python
+hex_string = ''.join(hex_values).replace('0x', '')
+
+ascii_chars = ''
+for i in range(0, len(hex_string), 2):
+    ascii_chars += chr(int(hex_string[i:i+2], 16))
+
+print(ascii_chars)
+```
+
+This is the message that Alice sent to Bob that I got:
+
+"
+Dear Bob, check this out. https://www.surveillancewatch.io/ See ya, Alice.
+"
 
 #### If the integers involved were much larger, the following issues might arise:
 
 - **Computation Time**: Calculating large powers with modular arithmetic would be slow without efficient algorithms like modular exponentiation.
 - **Memory Constraints**: Handling large numbers can quickly consume significant memory, especially in less optimized environments.
-- **Overflow**: If not using specialized libraries or built-in support for arbitrary-precision integers, you might run into overflow errors in languages that use fixed-size integers.
+- **Overflow**: If not using specialized libraries or built-in support for arbitrary-precision integers, we might run into overflow errors in languages that use fixed-size integers.
 
 #### Why Alice's Message Encoding Is Insecure
 
 Even if Bob's keys involved larger integers, Alice's message encoding would still be insecure because:
 
-- **Simple RSA Padding**: The message is encoded directly as ASCII without any additional encryption layers, such as padding schemes (e.g., OAEP). This makes it vulnerable to certain types of attacks, such as ciphertext-only attacks.
+- **Simple RSA Padding**: The message is encoded directly as ASCII without any additional encryption layers. This makes it vulnerable to certain types of attacks, such as ciphertext-only attacks.
 - **Predictable Content**: If parts of the message are predictable (such as common phrases or headers), an attacker can deduce parts of the plaintext, weakening the encryption.
