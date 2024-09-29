@@ -107,7 +107,7 @@ $$
 {\text{Cipher}} = (\text{ASCII})^{e_{\text{Bob}}} \mod n_{\text{Bob}}
 $$
 
-Where $e_{\text{Bob}} = 13$
+Where $e_{\text{Bob}} = 13$,
 $n_{\text{Bob}} = 162991$
 
 When we know the formula, Cipher numbers, $e_{\text{Bob}}$, and $n_{\text{Bob}}$, now we can solve for ASCII numbers
