@@ -99,15 +99,33 @@ The encrypted message sent from Alice to Bob is represented as the following cip
 13649, 120780, 133707, 66992, 128221]
 ```
 
-### Step 1: Factor \( n\_{\text{Bob}} \)
+### Step 1: Writing down all variables
 
-In order to decrypt the message, we first need to factor \( n\_{\text{Bob}} = 162991 \) into its prime factors \( p \) and \( q \):
+According to the RSA algorithms, we know that the cipher text the Alice sent to Bob is encrypted by:
 
-- \( p = 379 \)
-- \( q = 430 \)
+$(ASCII)^{e_{\text{Bob}}} \mod n_B$
 
-Using these factors, we can compute Euler's Totient function \( \phi(n) \):
+```python
+cipher = [17645, 100861, 96754, 160977, 120780, 90338, 130962, 74096,
+128123, 25052, 119569, 39404, 6697, 82550, 126667, 151824,
+80067, 75272, 72641, 43884, 5579, 29857, 33449, 46274,
+59283, 109287, 22623, 84902, 6161, 109039, 75094, 56614,
+13649, 120780, 133707, 66992, 128221]
 
-\[
-\phi(n) = (p - 1) \times (q - 1) = (379 - 1) \times (430 - 1) = 378 \times 429 = 162162
-\]
+numbers = []
+for i in cipher:
+  for j in range(1,162991) :
+    if (j**13) % 162991 == i:
+      numbers.append(j)
+
+print(numbers)
+for num in numbers:
+  print(chr(num), end='')
+```
+
+[17509, 24946, 8258, 28514, 11296, 25448, 25955, 27424, 29800,
+26995, 8303, 30068, 11808, 26740, 29808, 29498, 12079, 30583,
+30510, 29557, 29302, 25961, 27756, 24942, 25445, 30561, 29795,
+26670,26991, 12064, 21349, 25888, 31073, 11296, 16748, 26979, 25902]
+
+䑥慲⁂潢 Ⱐ 捨散欠瑨楳 ⁯ 畴⸠桴瑰猺⼯睷眮獵牶敩汬慮捥睡瑣栮楯⼠卥攠祡 Ⱐ 䅬楣攮
