@@ -106,7 +106,7 @@ According to the RSA algorithm, we know that the cipher sent by Alice to Bob is 
 (\text{Cipher}_{\text{number}} = (\text{ASCII}_{\text{number}})^{e*{\text{Bob}}} \mod n*{\text{Bob}})
 
 $$
-{\text{Cipher}} = (\text{ASCII})^(e_{\text{Bob}}) \mod n_{\text{Bob}}
+{\text{Cipher}} = (\text{ASCII})^{e_{\text{Bob}}} \mod n_{\text{Bob}}
 $$
 
 ```python
