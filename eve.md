@@ -101,9 +101,9 @@ The encrypted message sent from Alice to Bob is represented as the following cip
 
 ### Step 1: Writing down all variables
 
-According to the RSA algorithms, we know that the cipher text the Alice sent to Bob is encrypted by:
+According to the RSA algorithms, we know that the cipher that Alice sent to Bob has encrypted by:
 
-$(ASCII)^{e_{\text{Bob}}} \mod n_B$
+Cipher*number = $(\text{ASCII_number})^{e*{\text{Bob}}} \mod n_B$
 
 ```python
 cipher = [17645, 100861, 96754, 160977, 120780, 90338, 130962, 74096,
