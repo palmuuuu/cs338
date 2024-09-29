@@ -99,6 +99,8 @@ The encrypted message sent from Alice to Bob is represented as the following cip
 13649, 120780, 133707, 66992, 128221]
 ```
 
+### Task: Figure out the encrypted message sent from Alice to Bob
+
 ### Step 1: Defining Variables and Formula
 
 According to the RSA algorithm, we know that the cipher sent by Alice to Bob is encrypted using the following formula:
