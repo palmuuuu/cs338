@@ -198,9 +198,9 @@ This is the message that Alice sent to Bob that I got:
 
 #### If the integers involved were much larger, the following issues might arise:
 
-- **Computation Time**: Calculating large powers with modular arithmetic would be slow without efficient algorithms like modular exponentiation.
-- **Memory Constraints**: Handling large numbers can quickly consume significant memory, especially in less optimized environments.
-- **Overflow**: If not using specialized libraries or built-in support for arbitrary-precision integers, we might run into overflow errors in languages that use fixed-size integers.
+- **Computation Time**: Calculating large powers with modular arithmetic would be slow without efficient algorithms like modular exponentiation, as mentioned above. Moreover, the power of a number followed by a modulus can be repeatedly overworked since we can apply the properties of modular exponentiation to solve it (because the modulus yields the same result).
+
+- **Memory**: Handling large numbers can quickly consume significant memory and time, especially in less optimized environments.
 
 #### Why Alice's Message Encoding Is Insecure?
 
