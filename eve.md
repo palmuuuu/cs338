@@ -28,7 +28,7 @@ $$
 Substitute the values:
 
 $$
-\text{Alice sent Bob} = 7^53 \mod 97
+\text{Alice sent Bob} = 7^{53} \mod 97
 $$
 
 To solve for Alice sent Bob:
@@ -50,7 +50,7 @@ $$
 Substituting the values:
 
 $$
-\text{Bob sent Alice} = 7^82 \mod 97
+\text{Bob sent Alice} = 7^{82} \mod 97
 $$
 
 To solve for $y$:
