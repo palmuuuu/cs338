@@ -71,7 +71,7 @@ $$
 K*{\text{Bob}} = (\text{Alice's value})^y \mod p = 71^{82} \mod 97 = 86
 $$
 
-Both computations should give the same result for the shared secret $ K = 86 $.
+Both computations should give the same result for the shared secret $K = 86$.
 
 In the Diffie-Hellman key exchange algorithm, the shared secret is the same because the two people combined values to reach the same resulting value, without ever exchanging the secret itself.
 
