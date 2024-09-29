@@ -151,13 +151,13 @@ for num in asciis:
 Here is the message sent from Alice to Bob:
 䑥慲⁂潢 Ⱐ 捨散欠瑨楳 ⁯ 畴⸠桴瑰猺⼯睷眮獵牶敩汬慮捥睡瑣栮楯⼠卥攠祡 Ⱐ 䅬楣攮
 
-If the integers involved were much larger, the following issues might arise:
+#### If the integers involved were much larger, the following issues might arise:
 
 - **Computation Time**: Calculating large powers with modular arithmetic would be slow without efficient algorithms like modular exponentiation.
 - **Memory Constraints**: Handling large numbers can quickly consume significant memory, especially in less optimized environments.
 - **Overflow**: If not using specialized libraries or built-in support for arbitrary-precision integers, you might run into overflow errors in languages that use fixed-size integers.
 
-### Step 4: Why Alice's Message Encoding Is Insecure
+#### Why Alice's Message Encoding Is Insecure
 
 Even if Bob's keys involved larger integers, Alice's message encoding would still be insecure because:
 
