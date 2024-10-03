@@ -1,0 +1,193 @@
+# SSH key file formats
+
+**Name**: Palmy Klangsathorn
+
+0. Here is what private and public keys that I got from 'ssh-keygen -t rsa -m pem':
+
+Your identification has been saved in /Users/palmuuu/.ssh/id_rsa_homework
+Your public key has been saved in /Users/palmuuu/.ssh/id_rsa_homework.pub
+The key fingerprint is:
+SHA256:9gDk9vHCQe4+a6F1A+BV+b099CfRaB8KoSCw7PUTbg4 palmuuu@Palmus-MacBook-Pro-2.local
+The key's randomart image is:
++---[RSA 3072]----+
+| .. . .... |
+| . .+.+. .. |
+| o o=+= .... o |
+| . ..+=o= .. =o.|
+| . E =S.. ..o=o|
+| +o++o .o.=|
+| +oo.. .o|
+| . .o |
+| .. |
++----[SHA256]-----+
+
+Meaning: - The rsa private key has been saved in /Users/palmuuu/.ssh/id_rsa_homework - The rsa public key has been saved in /Users/palmuuu/.ssh/id_rsa_homework.pub - The key fingerprint is a condensed representation of the public key - The key's randomart image is a visual representation of the key fingerprint.
+If the key changes slightly, the randomart will look noticeably different.
+
+## Private Key
+
+1. Contents and meaning of the private key file:
+
+(base) palmuuu@Palmus-MacBook-Pro-2 .ssh % cat id_rsa_homework  
+-----BEGIN RSA PRIVATE KEY-----
+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
+-----END RSA PRIVATE KEY-----
+
+After decoded the private key:
+
+### hexadecimal
+
+SEQUENCE {
+INTEGER 0x00 (0 decimal)
+INTEGER 0x00c5d77e7aee40f85cdba0b4072ac80b7c3664a8da14a9d2ff938d4556724be897bcc14f4908e45b413b88ca05a8189f3ebbf015dc84c544342907e2d0ed83989eaac09129ae6c062f67299dd58db2d2b71326dd1a59fc9ac87e067bdba48892eca81c0f719ed4164cfc2fe16bc693d389470bb39ff62b8d601c5905ca7707eb510b48eb606854ef6818e2cbf5f86ca4710d9f9ddc3261115becbee715bff88b6b0eb011f67e15839d3026bac7c8e7d795c6b11ae598355e885c933d98d07a0e2ce976b448cdd6452e672a5c01690bebb38a1fde3685d31ad422cb85fd6d4404cb07bbde225bdb2bd34526a45f08fff2abaa453c54cc56466dc0b8be613796aa7fe100d17a99bf3d3da8b47e0d28ab436e57f96f9c30d7b994eaae240371a5c22e0ff2ee86b80b89e48ca933775ca304ca630329b375e365fe44095208163190c9c05223dff61ba4f1d24ff0e4d04dfcef2ff298915d4d962235b2a0757449768953e4e81400f80d5f5204322de9d7555f2e95b893652a28f2e98366e57ce496d7
+INTEGER 0x010001 (65537 decimal)
+INTEGER 0x00c3846ea39057b6db15d5e07480cc07c5ae7f95fb47967946488cc16c68322a5fe2936c06727a32d0e9c40a5ac2bfea8875f513b5c5a4a9fd9e5b03c594248c2ca9f4fac0a5766e3a648a554819ec12a008964cc5e10e69ed1fd6ca8acb348976c5c04d66ed1f0e16f0d764c03d141466c3468632dc763816368da7d26a05f2813a54cb0090baf789f9a6110939842c92e972c7f037fd83c943d379ce1dd4c3fb7e1d74f313b1b14b23adf2c2c40293249aa2a6412645fff16503c2490626c95fcc6a7b43b8c47b51a4bca009c994de1c4b006c385171575272031ab0813f81cee96dc470e40fed8f49027028c1e049912aad7deae2ff66750873df4f520c5330a58c28595167692756f36cd61649d4a5c86dfadf266399cc008bb830f754cbe8f162500dfaacf897dde53d0dce68be57a84846dd033d71962f968de686d739dc6bd5947508f03c221ddb94c67acbdde45e0d15a4a539d43bedceebe60c3182c8fa9bfff187ed2463227e7c44609e3e3db492e725a916fe34e5fd75edd41a5649
+INTEGER 0x00f71851b1ee35ff49b2f83f05fdef64fcb4a5957e20a82c7546c99c4181f2915063f0c2750bf13f32385d325dc8e2746d7e70ba677a3afabf0227ae2d3d40628ff0e0f0b8238d65277f047dc44cac9458ddb2de6819a6d98444f6b7a61760a498b632ef7b84f2f8158d8b9d98af7025072e1ecc833acfa622aa241211e57704ad00106b7e73292f46cdca94cd77038f501929d5dbfee71ce180d4d3b791011b52f33b0553f7c8d9686f569166295c94a6c5965a9b722d780c73158aae6525e25d
+INTEGER 0x00ccf8c4a944da24a4b2dfe02c5773d13c87fac5765e2a3c84d2b671539e1162faa81b62f4c510026944a78aff20b4172e20637ace8dc53bb4506330a43a2a5ecba1525b7faed849821ee0c3fb3397e7680d3e480319c4de702846e498d56c4b071f36e7cc13c076e14482f06081bbc2330015cd8d79107f42ee1c7c65a6ce7d50a77945f73436ae8778c0d00c9d79e78c1bd374229cb01af9bfac69ae5983f545ab33d085c03b6340a866f3b70452ee3d320eb960f93bcd2e86b4642a2eef32c3
+INTEGER 0x00991228b1d846fd2213cbb3872bbb5ccd2bbf942f715d9d44fd9831c36713f4af5f6a2b9cc4cc2b8119e7aa26ed265447ec573b329546ea44dfb9e32dc54f187fe112082d9a60a274683c49090d12b047a8f780cdee6e2d3bc2593085a4dfcab78bcf5c0a21df3e8e63844519ec3cc5c37fefb673e93fefc473b02abd897044a6436ee8988a10ce67c75ea2f5f1af73dd83e925c1c65437d0feb5597ed346633deccdf84bff291e7d92d386f949d03f8a5cc6fad4675401957cc9b082bec84c45
+INTEGER 0x0083b489b17663714e3efde9aeb456e028b3fb67ec621f6399b947afd419ea741e39ecb70e2e9dd5decc5597d3cdb0ca80422189e4b565f9b22841441d129eed208d3d3d3bf31e59457a0fd4fe51ad96ecde2d99da1c31caf86878fd245366ed62db24cd96ed4e2b551e4fc0a352595234b126515949645751ab6cb46620e3e7d3ee78d7833b92b35cab33c1bb8968ae66f1ee525e772e15774b393f02dfd411c33d79e2d03eb02a5b7e9a009a25f61fcd449fff701755dcc6bb99a80f0eef763f
+INTEGER 0x008fbf04573ec03048dae4c26a5111b2eccf9df18c91fdc0ca71901fc14249e3af3b9d0423531b9cb84a01d0328c02186678ae513bb6e53b85f5e40a35207c02f6fdd09f89df9cc189a19e5a3e039a94ee791182816bc46f9871846b289b38fba24d48846182b398f3f1d27d1c83eb52260a10fb10fe8ae328b40ca4171c4f499871595b2fe8c57efcbd19f75b717a5fad041721475d1e04a434e04fe69c8eac49f352ab524a5024f0feef4e3f7c0ab8ace8663e89177bba449e27a5fa14611f63
+}
+
+### decimal
+
+RSAPrivateKey SEQUENCE (9 elem)
+
+- version Version INTEGER 0
+- modulus INTEGER (3072 bit) 448977638489466721979125934497762820214623272628471933411190107580814…
+- publicExponent INTEGER 65537
+- privateExponent INTEGER (3072 bit) 443702560569560571622473555390338352027717251298171135560714553575638…
+- prime1 INTEGER (1536 bit) 232646930022035812150226807722563972011819587886585819999472185001287…
+- prime2 INTEGER (1536 bit) 192986702402193974690687396567723750123474649154939460405388037631116…
+- exponent1 INTEGER (1536 bit) 144120614492037046820682334661769301306252398623792631737164826569224…
+- exponent2 INTEGER (1536 bit) 124004196482273989779811968153309044378742404299306584328414417087811…
+- coefficient INTEGER (1536 bit) 135341076458952238035634105475022587424130823222626827409901133697176…
+
+What is the meaning/name of the integer? This should correspond to one of the items in your answer to the previous question,
+articulated as an ASN.1 name from the specification in RFC 8017.
+Ans: RSAPrivateKey ::= SEQUENCE {
+version Version,
+modulus INTEGER, -- n
+publicExponent INTEGER, -- e
+privateExponent INTEGER, -- d
+prime1 INTEGER, -- p
+prime2 INTEGER, -- q
+exponent1 INTEGER, -- d mod (p-1)
+exponent2 INTEGER, -- d mod (q-1)
+coefficient INTEGER, -- (inverse of q) mod p
+otherPrimeInfos OtherPrimeInfos OPTIONAL
+}
+
+    For each integer in the RSAPrivateKey sequence, which ASN.1 name it corresponds to based on its position and
+    role in the RSA private key structure.
+
+What is the value of the integer? Write the integer in either decimal or hexadecimal,
+whichever is more convenient. If hexadecimal, prepend the integer with "0x".
+Ans: The integer in either decimal or hexadecimal is mentioned above. The hexadecimal is the ones with 0x.
+The INTEGER is a Primitive which decimal is 2 and hexadecimal is 2.
+
+## Public Key
+
+2. Contents and meaning of the public key file:
+
+(base) palmuuu@Palmus-MacBook-Pro-2 .ssh % cat id_rsa_homework.pub
+ssh-rsa
+AAAAB3NzaC1yc2EAAAADAQABAAABgQDF13567kD4XNugtAcqyAt8NmSo2hSp0v+T
+jUVWckvol7zBT0kI5FtBO4jKBagYnz678BXchMVENCkH4tDtg5ieqsCRKa5sBi9n
+KZ3VjbLStxMm3RpZ/JrIfgZ726SIkuyoHA9xntQWTPwv4WvGk9OJRwuzn/YrjWAc
+WQXKdwfrUQtI62BoVO9oGOLL9fhspHENn53cMmERW+y+5xW/+ItrDrAR9n4Vg50w
+JrrHyOfXlcaxGuWYNV6IXJM9mNB6DizpdrRIzdZFLmcqXAFpC+uzih/eNoXTGtQi
+y4X9bUQEywe73iJb2yvTRSakXwj/8quqRTxUzFZGbcC4vmE3lqp/4QDRepm/PT2o
+tH4NKKtDblf5b5ww17mU6q4kA3Glwi4P8u6GuAuJ5IypM3dcowTKYwMps3XjZf5E
+CVIIFjGQycBSI9/2G6Tx0k/w5NBN/O8v8piRXU2WIjWyoHV0SXaJU+ToFAD4DV9S
+BDIt6ddVXy6VuJNlKijy6YNm5Xzkltc=
+palmuuu@Palmus-MacBook-Pro-2.local
+
+Write down what you expect to find in id_rsa_homework.pub and why;
+explain how you decoded the file; for each integer in the file,
+provide its name, value, and any other relevant details.
+
+By changing Base64 to hexnum
+Here I got the Hexadecimal Representation of the Public Key:
+000000077373682d727361000000030100010000018100c5d77e7aee40f8
+5cdba0b4072ac80b7c3664a8da14a9d2ff938d4556724be897bcc14f4908
+e45b413b88ca05a8189f3ebbf015dc84c544342907e2d0ed83989eaac091
+29ae6c062f67299dd58db2d2b71326dd1a59fc9ac87e067bdba48892eca8
+1c0f719ed4164cfc2fe16bc693d389470bb39ff62b8d601c5905ca7707eb
+510b48eb606854ef6818e2cbf5f86ca4710d9f9ddc3261115becbee715bf
+f88b6b0eb011f67e15839d3026bac7c8e7d795c6b11ae598355e885c933d
+98d07a0e2ce976b448cdd6452e672a5c01690bebb38a1fde3685d31ad422
+cb85fd6d4404cb07bbde225bdb2bd34526a45f08fff2abaa453c54cc5646
+6dc0b8be613796aa7fe100d17a99bf3d3da8b47e0d28ab436e57f96f9c30
+d7b994eaae240371a5c22e0ff2ee86b80b89e48ca933775ca304ca630329
+b375e365fe44095208163190c9c05223dff61ba4f1d24ff0e4d04dfcef2f
+f298915d4d962235b2a0757449768953e4e81400f80d5f5204322de9d755
+5f2e95b893652a28f2e98366e57ce496d7
+
+Breakdown of the Public Key, the public key structure is defined as follows based on the ASN.1 specification:
+
+RSAPublicKey ::= SEQUENCE {
+modulus INTEGER, -- n
+publicExponent INTEGER -- e
+}
+
+Modulus (n):
+Hexadecimal: 0x00c5d77e7aee40f85cdba0b4072ac80b7c3664a8da14a9d2ff938d4556724be897bcc14f4908e45b413b88ca05
+a8189f3ebbf015dc84c544342907e2d0ed83989eaac09129ae6c062f67299dd58db2d2b71326dd1a59fc9ac87e067bdba48892eca
+81c0f719ed4164cfc2fe16bc693d389470bb39ff62b8d601c5905ca7707eb510b48eb606854ef6818e2cbf5f86ca4710d9f9ddc32
+61115becbee715bff88b6b0eb011f67e15839d3026bac7c8e7d795c6b11ae598355e885c933d98d07a0e2ce976b448cdd6452e672
+a5c01690bebb38a1fde3685d31ad422cb85fd6d4404cb07bbde225bdb2bd34526a45f08fff2abaa453c54cc56466dc0b8be613796
+aa7fe100d17a99bf3d3da8b47e0d28ab436e57f96f9c30d7b994eaae240371a5c22e0ff2ee86b80b89e48ca933775ca304ca63032
+9b375e365fe44095208163190c9c05223dff61ba4f1d24ff0e4d04dfcef2ff298915d4d962235b2a0757449768953e4e81400f80d
+5f5204322de9d7555f2e95b893652a28f2e98366e57ce496d7
+
+- The modulus is serving as the product of the two prime numbers used in key generation.
+
+Public Exponent (e):
+Hexadecimal: 0x010001
+Decimal: 65537
+
+- The public exponent is often chosen to be 65537 for its properties that make it efficient for encryption operations.
+
+3. Sanity check of the relationships between the private and public key
+
+Does e\*d mod lambda(n) = 1? There are various relationships that you would expect these numbers to have, so show me that they do in fact have those relationships.
+
+For e\*d mod lambda(n) = 1 or not, first we know that e or public exponent is 65537.
+d or private exponent can be calculated from this:
