@@ -1,7 +1,6 @@
 # Cryptographic Scenarios
 
-**Author Name**  
-Palmy Klangsathorn
+**Author Name:** Palmy Klangsathorn
 
 ---
 
@@ -11,13 +10,13 @@ Palmy Klangsathorn
 
    **Plan:**
 
-   - Alice and Bob agree on a shared secret key \( K \) using the Diffie-Hellman key exchange.
-   - Alice encrypts the long message \( M \) using AES: \( C = \text{AES}(K, M) \).
-   - Alice sends \( C \) to Bob.
+   - Alice and Bob agree on a shared secret key K using the Diffie-Hellman key exchange.
+   - Alice encrypts the long message M using AES; C = AES(K, M).
+   - Alice sends C to Bob.
 
    **Explanation:**
 
-   - Since \( C \) is encrypted with a symmetric key \( K \) that only Alice and Bob know, Eve cannot read the message without knowing \( K \).
+   - Since C is encrypted with a symmetric key K that only Alice and Bob know, Eve cannot read the message without knowing K.
 
 ---
 
@@ -25,14 +24,14 @@ Palmy Klangsathorn
 
    **Plan:**
 
-   - Alice encrypts the long message \( M \) with AES using a shared key \( K \): \( C = \text{AES}(K, M) \).
-   - Alice generates a hash of the message: \( H(M) \).
-   - Alice signs the hash with her private key: \( \text{Sig} = E(S_A, H(M)) \).
-   - Alice sends both \( C \) and \( \text{Sig} \) to Bob.
+   - Alice encrypts the long message M with AES using a shared key K; C = AES(K, M).
+   - Alice generates a hash of the message: H(M).
+   - Alice signs the hash with her private key: Sig = E(S_A, H(M)).
+   - Alice sends both C and Sig to Bob.
 
    **Explanation:**
 
-   - Bob can decrypt \( C \) using \( K \) to retrieve \( M \) and compute \( H(M) \) to compare it with the signature \( \text{Sig} \). If they match, he knows that the message hasn't been altered.
+   - Bob can decrypt C using K to retrieve M and compute H(M) to compare it with the signature Sig. If they match, he knows that the message hasn't been altered.
 
 ---
 
@@ -40,14 +39,14 @@ Palmy Klangsathorn
 
    **Plan:**
 
-   - Alice and Bob agree on a shared secret key \( K \) using Diffie-Hellman.
-   - Alice generates the hash of the contract \( H(C) \) and signs it: \( \text{Sig} = E(S_A, H(C)) \).
-   - Alice encrypts the contract along with the signature: \( C' = \text{AES}(K, C || \text{Sig}) \).
-   - Alice sends \( C' \) to Bob.
+   - Alice and Bob agree on a shared secret key K using Diffie-Hellman.
+   - Alice generates the hash of the contract H(C) and signs it: Sig = E(S_A, H(C)).
+   - Alice encrypts the contract along with the signature: C' = AES(K, C || Sig).
+   - Alice sends C' to Bob.
 
    **Explanation:**
 
-   - Bob decrypts \( C' \) using \( K \) to retrieve \( C \) and \( \text{Sig} \). He verifies the signature against \( H(C) \) to confirm Alice's identity and ensure confidentiality against Eve.
+   - Bob decrypts C' using K to retrieve C and Sig. He verifies the signature against H(C) to confirm Alice's identity and ensure confidentiality against Eve.
 
 ---
 
