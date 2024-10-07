@@ -70,9 +70,7 @@
 2. **For Bob’s certificate (Cert_B), what does Sig_CA consist of?**
 
    **Formula for Sig_CA:**
-   \[
-   \text{Sig*CA} = E(S*{CA}, H("bob.com" || P_B))
-   \]
+   Sig_CA = E(S_CA, H("bob.com" || P_B))
 
    **Explanation:**
 
@@ -82,13 +80,13 @@
 
 3. **Is Cert_B enough for Alice to believe she's talking to Bob? What could Alice and Bob do?**
 
-   **No, Cert_B alone is not enough.** Alice needs to verify that Bob has the corresponding secret key \( S_B \).
+   **No, Cert_B alone is not enough.** Alice needs to verify that Bob has the corresponding secret key S_B.
 
    **Plan:**
 
-   - Alice can challenge Bob by sending a nonce \( N \) (a random number).
-   - Bob responds by signing the nonce: \( \text{Sig}\_B = E(S_B, N) \).
-   - Alice verifies \( \text{Sig}\_B \) using \( P_B \). If valid, she knows Bob owns \( S_B \).
+   - Alice can challenge Bob by sending a nonce N (a random number).
+   - Bob responds by signing the nonce: Sig_B = E(S_B, N).
+   - Alice verifies Sig_B using P_B. If valid, she knows Bob owns S_B.
 
 ---
 
