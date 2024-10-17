@@ -12,7 +12,7 @@ for i in cipher:
     if (j**13) % 162991 == i:
       asciis.append(j)
 
-print(asciis)
+print(asciis, end='\n')
     
 # asciis = [
 #     17509, 24946, 8258, 28514, 11296, 25448, 25955, 27424,
@@ -31,14 +31,16 @@ hex_values = []
 for value in asciis:
   hex_values.append(hex(value))
 
-print(hex_values)
+print(hex_values, end='\n')
 
 #hexadecimal numbers into one string and covert each consecutive pair to a character
 hex_string = ''.join(hex_values).replace('0x', '')
+print(hex_string, end='\n')
+# 4465617220426f622c20636865636b2074686973206f75742e2068747470733a2f2f7777772e7375727665696c6c616e636577617463682e696f2f205365652079612c20416c6963652e
 
 ascii_chars = ''
 for i in range(0, len(hex_string), 2):
     ascii_chars += chr(int(hex_string[i:i+2], 16))
 
-print(ascii_chars)
+print(ascii_chars, end='\n')
 # Dear Bob, check this out. https://www.surveillancewatch.io/ See ya, Alice.
