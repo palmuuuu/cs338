@@ -8,7 +8,7 @@
 
 1. **Alice wants to send Bob a long message, and she doesn't want Eve to be able to read it. Assume AITM is impossible.**
 
-   **Plan:**
+   **Method:**
 
    - Alice and Bob agree on a shared secret key K using the Diffie-Hellman key exchange.
    - Alice encrypts the long message M using AES; C = AES(K, M).
@@ -22,7 +22,7 @@
 
 2. **Alice wants to send Bob a long message. She doesn't want Mal to be able to modify the message without Bob detecting the change.**
 
-   **Plan:**
+   **Method:**
 
    - Alice encrypts the long message M with AES using a shared key K; C = AES(K, M).
    - Alice generates a hash of the message: H(M).
@@ -37,7 +37,7 @@
 
 3. **Alice wants to send Bob a long signed contract (C) that she doesn't want Eve to be able to read, and she wants Bob to have confidence that it was Alice who sent the message. Assume AITM is impossible.**
 
-   **Plan:**
+   **Method:**
 
    - Alice and Bob agree on a shared secret key K using Diffie-Hellman.
    - Alice generates the hash of the contract H(C) and signs it: Sig = E(S_A, H(C)).
@@ -52,7 +52,7 @@
 
 ## Questions About Breaking Security
 
-1. **Alice claims, "C is not the contract I sent to Bob." What could she claim happened?**
+1. **Alice claims, "C is not the contract I sent to Bob." These are the 3 claims:**
 
    - **Claim 1:** **Bob modified the contract after receiving it.**
 
@@ -82,9 +82,9 @@
 
    **No, Cert_B alone is not enough.** Alice needs to verify that Bob has the corresponding secret key S_B.
 
-   **Plan:**
+   **Method:**
 
-   - Alice can challenge Bob by sending a nonce N (a random number).
+   - Alice can challenge Bob by sending a random number, N.
    - Bob responds by signing the nonce: Sig_B = E(S_B, N).
    - Alice verifies Sig_B using P_B. If valid, she knows Bob owns S_B.
 
