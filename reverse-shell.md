@@ -18,7 +18,7 @@ curl "http://danger.jeffondich.com/uploadedimages/klangsathornp-webshell.php?com
 
 The `command=whoami` part of the URL sends the `whoami` command to the PHP web shell, which uses the `system()` function in PHP to execute the command on the server. The result I get when I execute `whoami` is `www-data`. This shows that the web server is running under the `www-data` user, which is typical for web servers on Linux.
 
-### b. What is this webshell's <pre> tag for? (And more to the point, what happens if you leave it out?)
+### b. What is this webshell's `<pre>` tag for? (And more to the point, what happens if you leave it out?)
 
 **Answer:** The `<pre>` tag in HTML is used to format text with preserved whitespace, line breaks, and fixed-width font. In this web shell, using `<pre>` around the PHP code output would display the command output exactly as it appears on the server, including any indentation, line breaks, or spacing, making it easier to read. If the `<pre>` tag is left out, the output may appear condensed, and formatting could be lost, making it harder to interpret multiline command outputs or complex data.
 
