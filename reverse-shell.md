@@ -163,7 +163,7 @@ In the `nc -l -p 6000` terminal, I now have a shell prompt from the Kali machine
 
 These `%` codes ensure that the command is properly interpreted by the web server without issues caused by special characters.
 
-### g. Write a brief description, probably including a diagram, explaining how this reverse shell is functioning.
+### g. Write a brief description, explaining how this reverse shell is functioning.
 
 **Answer:** A reverse shell allows an attacker (host OS) to gain control of a target machine (Kali) by setting up a listener on the host and initiating a connection from the target to the host. Here’s how it works:
 
