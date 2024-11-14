@@ -16,5 +16,5 @@ Deliverables:
 with diagrams. And talk a bit about how to set up Carleton’s VPN.
 
 
-The link to the blog post: 
+The link to the blog post: https://medium.com/@porapa916/what-is-a-vpn-and-how-to-confirm-a-successful-vpn-connection-d578acb98fee
 
